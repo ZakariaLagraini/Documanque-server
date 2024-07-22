@@ -1,0 +1,5 @@
+com\documanque\documanqueserver\Commentaire\CommentaireControllerTest.class
+com\documanque\documanqueserver\Utilisateur\UtilisateurControllerTest.class
+com\documanque\documanqueserver\Annonce\AnnonceControllerTest.class
+com\documanque\documanqueserver\DocumanqueServerApplicationTests.class
+com\documanque\documanqueserver\Notification\NotificationControllerTest.class

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: documanque-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: documanque-server
+  template:
+    metadata:
+      labels:
+        app: documanque-server
+    spec:
+      containers:
+        - name: documanque-server
+          image: zakarialagraini/documanque-server:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://localhost:5432/documanque
+            - name: SPRING_DATASOURCE_USERNAME
+              value: postgres
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: documanque-server-service
+spec:
+  selector:
+    app: documanque-server
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
