@@ -49,7 +49,7 @@ public class UtilisateurController {
         else{
             if(utilisateurService.checkVerificationTokenExists(u.getToken()) != null) u.setToken(u.getToken() + "x");
             try {
-                utilisateurService.sendVerificationEmail(u, "http://localhost:3000");
+                utilisateurService.sendVerificationEmail(u, "https://documanque-client.onrender.com/");
                 return utilisateurService.saveUtilisateur(
                         u.getNom(),
                         u.getPrenom(),
